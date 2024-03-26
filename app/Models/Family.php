@@ -73,4 +73,9 @@ class Family extends Model
     {
         return $this->belongsTo(EvacuationSite::class);
     }
+
+    public function getHeadAgeAttribute()
+    {
+        return \Carbon\Carbon::parse($this->head_birthdate)->age;
+    }
 }
