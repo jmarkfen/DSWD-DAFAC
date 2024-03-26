@@ -23,7 +23,8 @@ class Family extends Model
         'head_first_name',
         'head_name_extension',
         'head_birthdate',
-        'head_birthplace',
+        // 'head_birthplace',
+        'head_birthplace_id',
         'head_sex',
         'head_mother_maiden_name',
         'head_occupation',
@@ -77,5 +78,10 @@ class Family extends Model
     public function getHeadAgeAttribute()
     {
         return \Carbon\Carbon::parse($this->head_birthdate)->age;
+    }
+
+    public function head_birthplace()
+    {
+        return $this->belongsTo(Birthplace::class, 'head_birthplace_id');
     }
 }
