@@ -40,6 +40,10 @@ class Family extends Model
         'house_condition',
     ];
 
+    protected $casts = [
+        'head_sex' => \App\Enums\MaleOrFemale::class,
+    ];
+
     public function members()
     {
         return $this->hasMany(FamilyMember::class);
