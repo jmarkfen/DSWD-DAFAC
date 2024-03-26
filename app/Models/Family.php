@@ -16,7 +16,7 @@ class Family extends Model
         // 'district',
         // 'barangay',
         // 'municipality',
-        'evacuation_site',
+        // 'evacuation_site',
         'head_last_name',
         'head_first_name',
         'head_name_extension',
@@ -65,5 +65,10 @@ class Family extends Model
     public function getMunicipalityAttribute()
     {
         return $this->barangay->municipality;
+    }
+
+    public function evacuation_site()
+    {
+        return $this->belongsTo(EvacuationSite::class);
     }
 }
