@@ -19,7 +19,7 @@ return new class extends Migration
             // $table->string('district')->nullable();
             // $table->string('barangay')->nullable();
             // $table->string('municipality')->nullable();
-            $table->string('evacuation_site')->nullable();
+            // $table->string('evacuation_site')->nullable();
             $table->string('head_last_name')->nullable();
             $table->string('head_first_name')->nullable();
             $table->string('head_name_extension')->nullable();
