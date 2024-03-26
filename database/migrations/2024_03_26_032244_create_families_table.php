@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->id();
             $table->string('serial_number')->nullable();
-            $table->string('region')->nullable();
-            $table->string('province')->nullable();
-            $table->string('district')->nullable();
-            $table->string('barangay')->nullable();
-            $table->string('municipality')->nullable();
+            // $table->string('region')->nullable();
+            // $table->string('province')->nullable();
+            // $table->string('district')->nullable();
+            // $table->string('barangay')->nullable();
+            // $table->string('municipality')->nullable();
             $table->string('evacuation_site')->nullable();
             $table->string('head_last_name')->nullable();
             $table->string('head_first_name')->nullable();
