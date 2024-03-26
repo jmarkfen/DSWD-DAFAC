@@ -11,11 +11,11 @@ class Family extends Model
 
     protected $fillable = [
         'serial_number',
-        'region',
-        'province',
-        'district',
-        'barangay',
-        'municipality',
+        // 'region',
+        // 'province',
+        // 'district',
+        // 'barangay',
+        // 'municipality',
         'evacuation_site',
         'head_last_name',
         'head_first_name',
@@ -40,5 +40,30 @@ class Family extends Model
     public function members()
     {
         return $this->hasMany(FamilyMember::class);
+    }
+
+    public function barangay()
+    {
+        return $this->belongsTo(Barangay::class);
+    }
+
+    public function getRegionAttribute()
+    {
+        return $this->barangay->region;
+    }
+
+    public function getProvinceAttribute()
+    {
+        return $this->barangay->province;
+    }
+
+    public function getDistrictAttribute()
+    {
+        return $this->barangay->district;
+    }
+
+    public function getMunicipalityAttribute()
+    {
+        return $this->barangay->municipality;
     }
 }
