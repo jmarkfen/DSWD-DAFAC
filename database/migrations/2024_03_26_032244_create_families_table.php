@@ -36,7 +36,7 @@ return new class extends Migration
             $table->string('head_permanent_address')->nullable();
             $table->boolean('head_is_4ps_beneficiary')->nullable();
             // $table->string('head_ip_ethnicity')->nullable();
-            $table->string('house_ownership_type')->nullable();
+            $table->unsignedTinyInteger('house_ownership_type')->nullable();
             $table->string('house_condition')->nullable();
             $table->timestamps();
         });

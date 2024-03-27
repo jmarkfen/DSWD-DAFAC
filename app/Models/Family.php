@@ -46,6 +46,7 @@ class Family extends Model
 
     protected $casts = [
         'head_sex' => \App\Enums\MaleOrFemale::class,
+        'house_ownership_type' => \App\Enums\HouseOwnershipType::class,
     ];
 
     public function members()
