@@ -38,7 +38,8 @@ class Family extends Model
         'head_alternate_contact_number',
         'head_permanent_address',
         'head_is_4ps_beneficiary',
-        'head_ip_ethnicity',
+        // 'head_ip_ethnicity',
+        'head_ip_ethnicity_id',
         'house_ownership_type',
         'house_condition',
     ];
@@ -100,5 +101,10 @@ class Family extends Model
     public function head_id_card_type()
     {
         return $this->belongsTo(IdCardType::class, 'head_id_card_type_id');
+    }
+
+    public function head_ip_ethnicity()
+    {
+        return $this->belongsTo(IpEthnicity::class, 'head_ip_ethnicity_id');
     }
 }
