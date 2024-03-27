@@ -21,6 +21,7 @@ class Family extends Model
         'evacuation_site_id',
         'head_last_name',
         'head_first_name',
+        'head_middle_name',
         'head_name_extension',
         'head_birthdate',
         // 'head_birthplace',

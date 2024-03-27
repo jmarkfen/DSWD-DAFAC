@@ -22,6 +22,7 @@ return new class extends Migration
             // $table->string('evacuation_site')->nullable();
             $table->string('head_last_name')->nullable();
             $table->string('head_first_name')->nullable();
+            $table->string('head_middle_name')->nullable();
             $table->string('head_name_extension')->nullable();
             $table->date('head_birthdate')->nullable();
             // $table->string('head_birthplace')->nullable();
