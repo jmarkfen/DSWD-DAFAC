@@ -27,7 +27,8 @@ class Family extends Model
         'head_birthplace_id',
         'head_sex',
         'head_mother_maiden_name',
-        'head_occupation',
+        // 'head_occupation',
+        'head_occupation_id',
         'head_monthly_family_net_income',
         'head_id_type',
         'head_id_number',
@@ -87,5 +88,10 @@ class Family extends Model
     public function head_birthplace()
     {
         return $this->belongsTo(Birthplace::class, 'head_birthplace_id');
+    }
+
+    public function occupation()
+    {
+        return $this->belongsTo(Occupation::class, 'head_occupation_id');
     }
 }

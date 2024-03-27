@@ -27,7 +27,7 @@ return new class extends Migration
             // $table->string('head_birthplace')->nullable();
             $table->unsignedTinyInteger('head_sex')->nullable();
             $table->string('head_mother_maiden_name')->nullable();
-            $table->string('head_occupation')->nullable();
+            // $table->string('head_occupation')->nullable();
             $table->string('head_monthly_family_net_income')->nullable();
             $table->string('head_id_type')->nullable();
             $table->string('head_id_number')->nullable();
