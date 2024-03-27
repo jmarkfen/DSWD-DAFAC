@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('family_members', function (Blueprint $table) {
             $table->id();
             $table->foreignId('family_id')->constrained();
-            $table->string('last_name')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('middle_name')->nullable();
-            $table->string('name_extension')->nullable();
+            $table->string('family_member')->nullable();
             $table->string('relation_to_head')->nullable();
             $table->string('birthdate')->nullable();
             $table->string('sex')->nullable();

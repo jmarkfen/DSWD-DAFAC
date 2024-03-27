@@ -11,9 +11,7 @@ class FamilyMember extends Model
 
     protected $fillable = [
         'family_id',
-        'last_name',
-        'first_name',
-        'middle_name',
+        'family_member',
         'name_extension',
         'relation_to_head',
         'birthdate',
@@ -22,6 +20,11 @@ class FamilyMember extends Model
         'occupational_skills',
         'remarks',
     ];
+
+    public function __toString()
+    {
+        return $this->family_member;
+    }
 
     public function family()
     {
