@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::table('families', function (Blueprint $table) {
             $table->foreignId('head_id_card_type_id')->nullable()->constrained();
-            $table->string('head_id_card_number');
+            $table->string('head_id_card_number')->nullable();
         });
     }
 
