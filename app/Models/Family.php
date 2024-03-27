@@ -30,8 +30,10 @@ class Family extends Model
         // 'head_occupation',
         'head_occupation_id',
         'head_monthly_family_net_income',
-        'head_id_type',
-        'head_id_number',
+        // 'head_id_type',
+        // 'head_id_number',
+        'head_id_card_type_id',
+        'head_id_card_number',
         'head_primary_contact_number',
         'head_alternate_contact_number',
         'head_permanent_address',
@@ -93,5 +95,10 @@ class Family extends Model
     public function occupation()
     {
         return $this->belongsTo(Occupation::class, 'head_occupation_id');
+    }
+
+    public function head_id_card_type()
+    {
+        return $this->belongsTo(IdCardType::class, 'head_id_card_type_id');
     }
 }
