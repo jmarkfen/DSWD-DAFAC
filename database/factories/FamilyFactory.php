@@ -47,8 +47,15 @@ class FamilyFactory extends Factory
             'head_permanent_address' => fake()->address(),
             'head_is_4ps_beneficiary' => fake()->boolean(),
             // 'head_ip_ethnicity' => null,
-            // 'house_ownership_type' => null,
-            // 'house_condition' => null,
+            'house_ownership_type' => fake()->randomElement([
+                HouseOwnershipType::OWNER,
+                HouseOwnershipType::RENTER,
+                HouseOwnershipType::SHARER,
+            ]),
+            'house_condition' => fake()->randomElement([
+                HouseCondition::PARTIALLY_DAMAGED,
+                HouseCondition::TOTALLY_DAMAGED,
+            ]),
         ];
     }
 }

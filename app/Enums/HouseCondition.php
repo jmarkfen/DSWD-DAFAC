@@ -2,8 +2,8 @@
 
 namespace App\Enums;
 
-enum HouseCondition: int
+enum HouseCondition: string
 {
-    case PARTIALLY_DAMAGED = 1;
-    case TOTALLY_DAMAGED = 2;
+    case PARTIALLY_DAMAGED = 'Partially Damaged';
+    case TOTALLY_DAMAGED = 'Totally Damaged';
 }

@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum HouseOwnershipType: int
+enum HouseOwnershipType: string
 {
-    case OWNER = 1;
-    case RENTER = 2;
-    case SHARER = 3;
+    case OWNER = 'Owner';
+    case RENTER = 'Renter';
+    case SHARER = 'Sharer';
 }
