@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\HouseCondition;
+use App\Enums\HouseOwnershipType;
 use App\Enums\MaleOrFemale;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,17 +31,17 @@ class FamilyFactory extends Factory
             // 'barangay' => null,
             // 'municipality' => null,
             // 'evacuation_site' => null,
-            
-            'head_last_name' => fake()->firstName($gender->getLower()),
-            'head_first_name' => fake()->lastName($gender->getLower()),
-            'head_middle_name' => fake()->lastName($gender->getLower()),
+
+            'head_last_name' => fake()->lastName($gender),
+            'head_first_name' => fake()->firstName($gender),
+            'head_middle_name' => fake()->lastName($gender),
             'head_name_extension' => fake()->suffix(),
             'head_birthdate' => fake()->date(),
             // 'head_birthplace' => null,
             'head_sex' => $gender,
             'head_mother_maiden_name' => fake()->name('female'),
             // 'head_occupation' => null,
-            'head_monthly_family_net_income' => fake()->randomNumber(),
+            'head_monthly_family_net_income' => fake()->numberBetween(10000, 100000),
             // 'head_id_type' => null,
             // 'head_id_number' => null,
             'head_primary_contact_number' => fake()->mobileNumber(),
