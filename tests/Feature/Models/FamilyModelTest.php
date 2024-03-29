@@ -20,7 +20,7 @@ class FamilyModelTest extends TestCase
         $this->assertTrue(Family::all()->contains($model));
     }
 
-    public function test_collection_do_not_contain_deleted_model(): void
+    public function test_collection_does_not_contain_deleted_model(): void
     {
         $model = Family::factory()->create();
         $model->delete();
