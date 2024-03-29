@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Enums\HouseCondition;
 use App\Enums\HouseOwnershipType;
-use App\Enums\MaleOrFemale;
+use App\Enums\Gender;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,8 +20,8 @@ class FamilyFactory extends Factory
      */
     public function definition(): array
     {
-        /** @var MaleOrFemale */
-        $gender = fake()->randomElement([MaleOrFemale::MALE, MaleOrFemale::FEMALE]);
+        /** @var Gender */
+        $gender = fake()->randomElement([Gender::MALE, Gender::FEMALE]);
 
         return [
             'serial_number' => fake()->bothify('#####'),

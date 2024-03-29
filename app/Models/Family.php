@@ -46,7 +46,7 @@ class Family extends Model
     ];
 
     protected $casts = [
-        'head_sex' => \App\Enums\MaleOrFemale::class,
+        'head_sex' => \App\Enums\Gender::class,
         'house_ownership_type' => \App\Enums\HouseOwnershipType::class,
         'house_condition' => \App\Enums\HouseCondition::class,
     ];
