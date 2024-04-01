@@ -86,4 +86,4 @@ jobs:
         touch database/database.sqlite
         
     - name: Execute tests
-      run: php artisan test
+      run: .\vendor\bin\phpunit
