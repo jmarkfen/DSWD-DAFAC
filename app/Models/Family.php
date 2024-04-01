@@ -26,7 +26,7 @@ class Family extends Model
         'head_birthdate',
         // 'head_birthplace',
         'head_birthplace_id',
-        'head_sex',
+        'head_gender',
         'head_mother_maiden_name',
         // 'head_occupation',
         'head_occupation_id',
@@ -46,7 +46,7 @@ class Family extends Model
     ];
 
     protected $casts = [
-        'head_sex' => \App\Enums\Gender::class,
+        'head_gender' => \App\Enums\Gender::class,
         'house_ownership_type' => \App\Enums\HouseOwnershipType::class,
         'house_condition' => \App\Enums\HouseCondition::class,
     ];
@@ -96,7 +96,7 @@ class Family extends Model
         return $this->belongsTo(Birthplace::class, 'head_birthplace_id');
     }
 
-    public function occupation()
+    public function head_occupation()
     {
         return $this->belongsTo(Occupation::class, 'head_occupation_id');
     }

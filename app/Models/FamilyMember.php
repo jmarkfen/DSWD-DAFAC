@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,13 +13,16 @@ class FamilyMember extends Model
     protected $fillable = [
         'family_id',
         'family_member',
-        'name_extension',
         'relation_to_head',
         'birthdate',
-        'sex',
+        'gender',
         'educational_attainment',
         'occupational_skills',
         'remarks',
+    ];
+
+    protected $casts = [
+        'gender' => Gender::class,
     ];
 
     public function __toString()

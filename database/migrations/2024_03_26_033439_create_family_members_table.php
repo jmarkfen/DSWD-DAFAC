@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('family_id')->constrained();
             $table->string('family_member')->nullable();
             $table->string('relation_to_head')->nullable();
-            $table->string('birthdate')->nullable();
-            $table->string('sex')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->char('gender', 8)->nullable();
             $table->string('educational_attainment')->nullable();
             $table->string('occupational_skills')->nullable();
             $table->string('remarks')->nullable();
