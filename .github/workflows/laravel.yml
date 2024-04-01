@@ -4,7 +4,7 @@ on:
 
   push:
 
-    branches: [ "main" ]
+    # branches: [ "main" ]
 
     paths: 
       - 'app/**'
@@ -19,7 +19,7 @@ on:
       - 'composer.*'
       - '!**.md'
 
-  pull_request:
+  # pull_request:
 
   workflow_dispatch:
 
