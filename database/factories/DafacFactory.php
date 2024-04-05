@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Enums\Gender;
+use App\Enums\HouseOwnershipType;
+use App\Enums\HousingCondition;
 use App\Models\Dafac;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -44,8 +46,8 @@ class DafacFactory extends Factory
             'older_persons_count' => fake()->numberBetween(1, 9),
             'pregnant_and_lactating_mothers_count' => fake()->numberBetween(1, 9),
             'pwd_and_with_medical_conditions_count' => fake()->numberBetween(1, 9),
-            'house_ownership' => fake()->word(),
-            'housing_condition' => fake()->word(),
+            'house_ownership' => fake()->randomElement(HouseOwnershipType::cases()),
+            'housing_condition' => fake()->randomElement(HousingCondition::cases()),
         ];
     }
 

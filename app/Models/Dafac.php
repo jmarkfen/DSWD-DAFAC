@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\Gender;
+use App\Enums\HouseOwnershipType;
+use App\Enums\HousingCondition;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +19,8 @@ class Dafac extends Model
 
     protected $casts = [
         'sex' => Gender::class,
+        'house_ownership' => HouseOwnershipType::class,
+        'housing_condition' => HousingCondition::class,
     ];
 
     protected function age(): Attribute
