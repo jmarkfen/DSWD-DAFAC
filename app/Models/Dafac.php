@@ -68,4 +68,9 @@ class Dafac extends Model
     {
         return $this->belongsTo(IdCardType::class);
     }
+
+    public function ethnicity_type()
+    {
+        return $this->belongsTo(EthnicityType::class);
+    }
 }

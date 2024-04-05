@@ -39,7 +39,7 @@ class DafacFactory extends Factory
             'permanent_address' => fake()->word(),
             'is_4ps_beneficiary' => fake()->boolean(),
             'is_ip' => true,
-            'ethnicity_type' => fake()->word(),
+            'ethnicity_type_id' => EthnicityTypeFactory::new(),
             'members' => fake()->word(),
             'older_persons_count' => fake()->numberBetween(1, 9),
             'pregnant_and_lactating_mothers_count' => fake()->numberBetween(1, 9),
