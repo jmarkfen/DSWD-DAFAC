@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Gender;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -28,7 +29,7 @@ class DafacFactory extends Factory
             'name_extension' => fake()->suffix(),
             'birthdate' => fake()->date(),
             'birthplace_id' => BirthplaceFactory::new(),
-            'sex' => fake()->word(),
+            'sex' => fake()->randomElement(Gender::cases()),
             'mother_maiden_name' => fake()->word(),
             'occupation' => fake()->word(),
             'monthly_family_net_income' => fake()->word(),
