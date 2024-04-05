@@ -17,7 +17,7 @@ class EvacuationSiteFactory extends Factory
     public function definition(): array
     {
         return [
-            'evacuation_site' => ucfirst(fake()->word()),
+            'name' => fake()->word(),
         ];
     }
 }

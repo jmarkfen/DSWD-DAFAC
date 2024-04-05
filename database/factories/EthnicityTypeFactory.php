@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IpEthnicity>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\EthnicityType>
  */
-class IpEthnicityFactory extends Factory
+class EthnicityTypeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class IpEthnicityFactory extends Factory
     public function definition(): array
     {
         return [
-            'ip_ethnicity' => ucfirst(fake()->word()),
+            'name' => fake()->word(),
         ];
     }
 }

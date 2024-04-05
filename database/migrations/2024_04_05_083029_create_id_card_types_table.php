@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('occupations', function (Blueprint $table) {
+        Schema::create('id_card_types', function (Blueprint $table) {
             $table->id();
-            $table->string('occupation');
+            $table->string('name');
             $table->timestamps();
         });
 
-        Schema::table('families', function (Blueprint $table) {
-            $table->foreignId('head_occupation_id')->nullable()->constrained();
+        Schema::table('dafacs', function (Blueprint $table) {
+            $table->foreignId('id_card_type_id')->nullable()->constrained();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('occupations');
+        Schema::dropIfExists('id_card_types');
     }
 };

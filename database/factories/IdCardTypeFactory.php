@@ -17,7 +17,7 @@ class IdCardTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_card_type' => ucfirst(fake()->word()),
+            'name' => fake()->word(),
         ];
     }
 }

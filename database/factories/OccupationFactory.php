@@ -17,7 +17,7 @@ class OccupationFactory extends Factory
     public function definition(): array
     {
         return [
-            'occupation' => ucfirst(fake()->word()),
+            'name' => fake()->name(),
         ];
     }
 }

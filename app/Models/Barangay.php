@@ -9,21 +9,8 @@ class Barangay extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'region',
-        'province',
-        'district',
-        'municipality',
-        'barangay',
-    ];
-
-    public function __toString()
+    public function dafacs()
     {
-        return $this->barangay;
-    }
-
-    public function families()
-    {
-        return $this->hasMany(Family::class);
+        return $this->hasMany(Dafac::class);
     }
 }

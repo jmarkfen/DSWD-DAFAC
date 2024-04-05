@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('barangays', function (Blueprint $table) {
             $table->id();
-            $table->string('region')->nullable();
-            $table->string('province')->nullable();
-            $table->string('district')->nullable();
-            $table->string('municipality')->nullable();
-            $table->string('barangay');
+            $table->string('region');
+            $table->string('province');
+            $table->string('district');
+            $table->string('municipality');
+            $table->string('name');
             $table->timestamps();
         });
 
-        Schema::table('families', function (Blueprint $table) {
+        Schema::table('dafacs', function (Blueprint $table) {
             $table->foreignId('barangay_id')->nullable()->constrained();
         });
     }

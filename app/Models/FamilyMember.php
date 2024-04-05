@@ -10,28 +10,12 @@ class FamilyMember extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'family_id',
-        'family_member',
-        'relation_to_head',
-        'birthdate',
-        'gender',
-        'educational_attainment',
-        'occupational_skills',
-        'remarks',
-    ];
-
     protected $casts = [
-        'gender' => Gender::class,
+        'sex' => Gender::class,
     ];
 
-    public function __toString()
+    public function dafac()
     {
-        return $this->family_member;
-    }
-
-    public function family()
-    {
-        return $this->belongsTo(Family::class);
+        return $this->belongsTo(Dafac::class);
     }
 }

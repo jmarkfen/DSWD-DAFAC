@@ -8,16 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Occupation extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['occupation'];
-
-    public function __toString()
-    {
-        return $this->occupation;
-    }
-
-    public function families()
-    {
-        return $this->hasMany(Family::class, 'head_occupation_id');
-    }
 }

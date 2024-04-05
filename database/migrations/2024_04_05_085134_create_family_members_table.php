@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('family_members', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('family_id')->constrained();
-            $table->string('family_member')->nullable();
-            $table->string('relation_to_head')->nullable();
-            $table->date('birthdate')->nullable();
-            $table->char('gender', 8)->nullable();
-            $table->string('educational_attainment')->nullable();
-            $table->string('occupational_skills')->nullable();
-            $table->string('remarks')->nullable();
+            $table->foreignId('dafac_id')->constrained();
+            $table->string('name');
+            $table->string('relation_to_head');
+            $table->unsignedInteger('age');
+            $table->string('sex');
+            $table->string('educational_attainment');
+            $table->string('occupational_skills');
+            $table->string('remarks');
             $table->timestamps();
         });
     }

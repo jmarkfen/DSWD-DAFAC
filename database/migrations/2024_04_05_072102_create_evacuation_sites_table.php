@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('birthplaces', function (Blueprint $table) {
+        Schema::create('evacuation_sites', function (Blueprint $table) {
             $table->id();
-            $table->string('birthplace');
+            $table->string('name');
             $table->timestamps();
         });
 
-        Schema::table('families', function (Blueprint $table) {
-            $table->foreignId('head_birthplace_id')->nullable()->constrained();
+        Schema::table('dafacs', function (Blueprint $table) {
+            $table->foreignId('evacuation_site_id')->nullable()->constrained();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('birthplaces');
+        Schema::dropIfExists('evacuation_sites');
     }
 };

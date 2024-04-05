@@ -17,11 +17,12 @@ class BarangayFactory extends Factory
     public function definition(): array
     {
         return [
+            // location of the affected family
             'region' => fake()->word(),
             'province' => fake()->word(),
             'district' => fake()->word(),
             'municipality' => fake()->word(),
-            'barangay' => ucfirst(fake()->word()),
+            'name' => fake()->word(),
         ];
     }
 }

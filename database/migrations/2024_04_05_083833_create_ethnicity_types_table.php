@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ip_ethnicities', function (Blueprint $table) {
+        Schema::create('ethnicity_types', function (Blueprint $table) {
             $table->id();
-            $table->string('ip_ethnicity');
+            $table->string('name');
             $table->timestamps();
         });
 
-        Schema::table('families', function (Blueprint $table){
-            $table->foreignId('head_ip_ethnicity_id')->nullable()->constrained();
+        Schema::table('dafacs', function (Blueprint $table) {
+            $table->foreignId('ethnicity_type_id')->nullable()->constrained();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ip_ethnicities');
+        Schema::dropIfExists('ethnicity_types');
     }
 };

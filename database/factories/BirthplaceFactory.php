@@ -17,7 +17,7 @@ class BirthplaceFactory extends Factory
     public function definition(): array
     {
         return [
-            'birthplace' => ucfirst(fake()->word()),
+            'name' => fake()->city(),
         ];
     }
 }
