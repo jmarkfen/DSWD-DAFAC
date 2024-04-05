@@ -73,4 +73,9 @@ class Dafac extends Model
     {
         return $this->belongsTo(EthnicityType::class);
     }
+
+    public function members()
+    {
+        return $this->hasMany(FamilyMember::class);
+    }
 }

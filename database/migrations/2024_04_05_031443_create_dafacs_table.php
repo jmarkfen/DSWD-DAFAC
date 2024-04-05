@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('permanent_address');
             $table->string('is_4ps_beneficiary');
             $table->string('is_ip');
-            $table->string('members');
             $table->string('older_persons_count');
             $table->string('pregnant_and_lactating_mothers_count');
             $table->string('pwd_and_with_medical_conditions_count');
