@@ -59,7 +59,7 @@ class DafacTest extends TestCase
             'family members' => ['members'],
             'no. of older persons' => ['older_persons_count'],
             'no. of pregnant and lactating mothers' => ['pregnant_and_lactating_mothers_count'],
-            'no. of pwds & with medical conditions' => ['pwd_and_with_medical_conditions_count'],
+            'no. of pwd & with medical conditions' => ['pwd_and_with_medical_conditions_count'],
             'house ownership' => ['house_ownership'],
             'housing condition' => ['housing_condition'],
         ];
