@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('middle_name');
             $table->string('name_extension');
             $table->string('birthdate');
-            $table->string('birthplace');
             $table->string('sex');
             $table->string('mother_maiden_name');
             $table->string('occupation');

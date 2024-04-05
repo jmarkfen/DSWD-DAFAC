@@ -48,4 +48,9 @@ class Dafac extends Model
     {
         return $this->belongsTo(EvacuationSite::class);
     }
+
+    public function birthplace()
+    {
+        return $this->belongsTo(Birthplace::class);
+    }
 }

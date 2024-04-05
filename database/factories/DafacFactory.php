@@ -27,7 +27,7 @@ class DafacFactory extends Factory
             'middle_name' => fake()->lastName(),
             'name_extension' => fake()->suffix(),
             'birthdate' => fake()->date(),
-            'birthplace' => fake()->word(),
+            'birthplace_id' => BirthplaceFactory::new(),
             'sex' => fake()->word(),
             'mother_maiden_name' => fake()->word(),
             'occupation' => fake()->word(),
