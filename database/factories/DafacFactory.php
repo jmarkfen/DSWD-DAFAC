@@ -20,7 +20,7 @@ class DafacFactory extends Factory
             'serial_number' => fake()->word(),
             // location of the affected family
             'barangay_id' => BarangayFactory::new(),
-            'evacuation_site' => fake()->word(),
+            'evacuation_site_id' => EvacuationSiteFactory::new(),
             // head of the family
             'last_name' => fake()->lastName(),
             'first_name' => fake()->firstName(),

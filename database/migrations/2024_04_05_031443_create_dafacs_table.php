@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('dafacs', function (Blueprint $table) {
             $table->id();
             $table->string('serial_number');
-            // location of the affected family
-            $table->string('evacuation_site');
             // head of the family
             $table->string('last_name');
             $table->string('first_name');

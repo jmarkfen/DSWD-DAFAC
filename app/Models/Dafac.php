@@ -43,4 +43,9 @@ class Dafac extends Model
     {
         return Attribute::get(fn () => $this->barangay->municipality);
     }
+
+    public function evacuation_site()
+    {
+        return $this->belongsTo(EvacuationSite::class);
+    }
 }
