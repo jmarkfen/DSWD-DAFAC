@@ -25,12 +25,6 @@ class DafacTest extends TestCase
         $this->assertNotNull($value);
     }
 
-    public function test_attributes()
-    {
-        $model = DafacFactory::new()->create();
-        dump($model->toArray());
-    }
-
     public static function dafacAttributesProvider()
     {
         // * use $_dataName on @testdox to get key

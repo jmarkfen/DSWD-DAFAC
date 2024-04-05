@@ -17,13 +17,9 @@ class DafacFactory extends Factory
     public function definition(): array
     {
         return [
-            // location of the affected family
             'serial_number' => fake()->word(),
-            'region' => fake()->word(),
-            'province' => fake()->word(),
-            'district' => fake()->word(),
-            'barangay' => fake()->word(),
-            'municipality' => fake()->word(),
+            // location of the affected family
+            'barangay_id' => BarangayFactory::new(),
             'evacuation_site' => fake()->word(),
             // head of the family
             'last_name' => fake()->lastName(),
@@ -41,10 +37,8 @@ class DafacFactory extends Factory
             'contact_number' => fake()->mobileNumber(),
             'permanent_address' => fake()->word(),
             'is_4ps_beneficiary' => fake()->boolean(),
-            'is_ip' => fake()->boolean(),
-            'ethnicity_type' => function (array $attributes) {
-                return $attributes['is_ip'] ? fake()->word() : null;
-            },
+            'is_ip' => true,
+            'ethnicity_type' => fake()->word(),
             'members' => fake()->word(),
             'older_persons_count' => fake()->numberBetween(1, 9),
             'pregnant_and_lactating_mothers_count' => fake()->numberBetween(1, 9),

@@ -13,13 +13,8 @@ return new class extends Migration
     {
         Schema::create('dafacs', function (Blueprint $table) {
             $table->id();
-            // location of the affected family
             $table->string('serial_number');
-            $table->string('region');
-            $table->string('province');
-            $table->string('district');
-            $table->string('barangay');
-            $table->string('municipality');
+            // location of the affected family
             $table->string('evacuation_site');
             // head of the family
             $table->string('last_name');

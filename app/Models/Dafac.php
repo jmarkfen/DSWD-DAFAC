@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,10 +16,31 @@ class Dafac extends Model
 
     protected function age(): Attribute
     {
-        return Attribute::make(
-            get: function (mixed $value, array $attributes) {
-                return \Carbon\Carbon::parse($attributes['birthdate'])->age;
-            }
-        );
+        return Attribute::get(fn () => Carbon::parse($this->birthdate)->age);
+    }
+
+    public function barangay()
+    {
+        return $this->belongsTo(Barangay::class);
+    }
+
+    protected function region(): Attribute
+    {
+        return Attribute::get(fn () => $this->barangay->region);
+    }
+
+    protected function province(): Attribute
+    {
+        return Attribute::get(fn () => $this->barangay->province);
+    }
+
+    protected function district(): Attribute
+    {
+        return Attribute::get(fn () => $this->barangay->district);
+    }
+
+    protected function municipality(): Attribute
+    {
+        return Attribute::get(fn () => $this->barangay->municipality);
     }
 }
