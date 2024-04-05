@@ -63,4 +63,9 @@ class Dafac extends Model
     {
         return $this->belongsTo(Occupation::class);
     }
+
+    public function id_card_type()
+    {
+        return $this->belongsTo(IdCardType::class);
+    }
 }

@@ -49,7 +49,7 @@ class DafacTest extends TestCase
             'mother\'s maiden name' => ['mother_maiden_name'],
             'occupation' => ['occupation'],
             'monthly family net income' => ['monthly_family_net_income'],
-            'ID card presented' => ['id_card_presented'],
+            'ID card presented' => ['id_card_type'],
             'ID card number' => ['id_card_number'],
             'contact number' => ['contact_number'],
             'permanent address' => ['permanent_address'],
