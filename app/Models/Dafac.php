@@ -58,4 +58,9 @@ class Dafac extends Model
     {
         return $this->belongsTo(Birthplace::class);
     }
+
+    public function occupation()
+    {
+        return $this->belongsTo(Occupation::class);
+    }
 }

@@ -31,7 +31,7 @@ class DafacFactory extends Factory
             'birthplace_id' => BirthplaceFactory::new(),
             'sex' => fake()->randomElement(Gender::cases()),
             'mother_maiden_name' => fake()->word(),
-            'occupation' => fake()->word(),
+            'occupation_id' => OccupationFactory::new(),
             'monthly_family_net_income' => fake()->word(),
             'id_card_presented' => fake()->word(),
             'id_card_number' => fake()->numerify(),

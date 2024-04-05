@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('birthdate');
             $table->string('sex');
             $table->string('mother_maiden_name');
-            $table->string('occupation');
             $table->string('monthly_family_net_income');
             $table->string('id_card_presented');
             $table->string('id_card_number');
