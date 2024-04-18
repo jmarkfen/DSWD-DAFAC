@@ -89,6 +89,14 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('serial_number')
                     ->label('Serial #')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('barangay_id')
+                    ->label('Barangay')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('evacuation_site_id')
+                    ->label('Evacuation site')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('first_name')
@@ -100,13 +108,25 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthdate')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('birthplace_id')
+                    ->label('Birthplace')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mother_maiden_name')
                     ->label('Mother')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('occupation_id')
+                    ->label('Occupation')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('monthly_family_net_income')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('id_card_type_id')
+                    ->label('ID card')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_number')
                     ->label('ID card #')
                     ->searchable(),
@@ -120,6 +140,10 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('is_ip')
                     ->label('IP')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('ethnicity_type_id')
+                    ->label('Ethnicity')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('older_persons_count')
                     ->label('Older persons')
                     ->searchable(),
@@ -141,30 +165,6 @@ class DafacResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('barangay_id')
-                    ->label('Barangay')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('evacuation_site_id')
-                    ->label('Evacuation site')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('birthplace_id')
-                    ->label('Birthplace')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('occupation_id')
-                    ->label('Occupation')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('id_card_type_id')
-                    ->label('ID card presented')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('ethnicity_type_id')
-                    ->label('Ethnicity')
-                    ->numeric()
-                    ->sortable(),
             ])
             ->filters([
                 //
