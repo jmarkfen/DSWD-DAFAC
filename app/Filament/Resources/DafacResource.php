@@ -87,6 +87,7 @@ class DafacResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('serial_number')
+                    ->label('Serial #')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
@@ -95,30 +96,38 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('middle_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name_extension')
+                    ->label('Name ext.')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthdate')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mother_maiden_name')
+                    ->label('Mother')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('monthly_family_net_income')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('id_card_number')
+                    ->label('ID card #')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('contact_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('permanent_address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('is_4ps_beneficiary')
+                    ->label('4Ps')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('is_ip')
+                    ->label('IP')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('older_persons_count')
+                    ->label('Older persons')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('pregnant_and_lactating_mothers_count')
+                    ->label('Lactating mothers')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('pwd_and_with_medical_conditions_count')
+                    ->label('PWDs w/ medical condition')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('house_ownership')
                     ->searchable(),
@@ -133,21 +142,27 @@ class DafacResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('barangay_id')
+                    ->label('Barangay')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('evacuation_site_id')
+                    ->label('Evacuation site')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('birthplace_id')
+                    ->label('Birthplace')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('occupation_id')
+                    ->label('Occupation')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_type_id')
+                    ->label('ID card presented')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('ethnicity_type_id')
+                    ->label('Ethnicity')
                     ->numeric()
                     ->sortable(),
             ])
