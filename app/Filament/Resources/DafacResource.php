@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\Gender;
+use App\Enums\HouseOwnershipType;
+use App\Enums\HousingCondition;
 use App\Filament\Resources\DafacResource\Pages;
 use App\Filament\Resources\DafacResource\RelationManagers;
 use App\Models\Dafac;
@@ -28,32 +31,74 @@ class DafacResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
+            ->columns(1)
             ->schema([
                 Forms\Components\TextInput::make('serial_number'),
+                Forms\Components\Select::make('barangay_id')
+                    ->relationship(name: 'barangay', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\Select::make('evacuation_site_id')
+                    ->relationship(name: 'evacuation_site', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload(),
                 Forms\Components\TextInput::make('last_name'),
                 Forms\Components\TextInput::make('first_name'),
                 Forms\Components\TextInput::make('middle_name'),
                 Forms\Components\TextInput::make('name_extension'),
-                Forms\Components\TextInput::make('birthdate'),
-                Forms\Components\TextInput::make('sex'),
+                Forms\Components\DatePicker::make('birthdate')
+                    ->native(false)
+                    ->displayFormat('d F Y')
+                    ->weekStartsOnSunday()
+                    ->maxDate(now()),
+                Forms\Components\Select::make('birthplace_id')
+                    ->relationship(name: 'birthplace', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\Radio::make('sex')
+                    ->inline()
+                    ->inlineLabel(false)
+                    ->options(Gender::class),
                 Forms\Components\TextInput::make('mother_maiden_name'),
+                Forms\Components\Select::make('occupation_id')
+                    ->relationship(name: 'occupation', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload(),
                 Forms\Components\TextInput::make('monthly_family_net_income'),
-                Forms\Components\TextInput::make('id_card_number'),
+                Forms\Components\Select::make('id_card_type_id')
+                    ->label('ID card presented')
+                    ->relationship(name: 'id_card_type', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\TextInput::make('id_card_number')
+                    ->label('ID card number'),
                 Forms\Components\TextInput::make('contact_number'),
                 Forms\Components\TextInput::make('permanent_address'),
-                Forms\Components\TextInput::make('is_4ps_beneficiary'),
-                Forms\Components\TextInput::make('is_ip'),
-                Forms\Components\TextInput::make('older_persons_count'),
-                Forms\Components\TextInput::make('pregnant_and_lactating_mothers_count'),
-                Forms\Components\TextInput::make('pwd_and_with_medical_conditions_count'),
-                Forms\Components\TextInput::make('house_ownership'),
-                Forms\Components\TextInput::make('housing_condition'),
-                Forms\Components\TextInput::make('barangay_id'),
-                Forms\Components\TextInput::make('evacuation_site_id'),
-                Forms\Components\TextInput::make('birthplace_id'),
-                Forms\Components\TextInput::make('occupation_id'),
-                Forms\Components\TextInput::make('id_card_type_id'),
-                Forms\Components\TextInput::make('ethnicity_type_id'),
+                Forms\Components\Checkbox::make('is_4ps_beneficiary')
+                    ->label('4Ps beneficiary'),
+                Forms\Components\Checkbox::make('is_ip')
+                    ->label('IP (Indigenous Peoples)')
+                    ->live(),
+                Forms\Components\Select::make('ethnicity_type_id')
+                    ->label('Type of ethnicity')
+                    ->relationship(name: 'ethnicity_type', titleAttribute: 'name')
+                    ->searchable()
+                    ->preload()
+                    ->visible(fn (Forms\Get $get): bool => $get('is_ip')),
+                Forms\Components\TextInput::make('older_persons_count')
+                    ->label('No. of older persons'),
+                Forms\Components\TextInput::make('pregnant_and_lactating_mothers_count')
+                    ->label('No. of pregnant and lactating mothers'),
+                Forms\Components\TextInput::make('pwd_and_with_medical_conditions_count')
+                    ->label('No. of PWDs & with medical conditions'),
+                Forms\Components\Radio::make('house_ownership')
+                    ->inline()
+                    ->inlineLabel(false)
+                    ->options(HouseOwnershipType::class),
+                Forms\Components\Radio::make('housing_condition')
+                    ->inline()
+                    ->inlineLabel(false)
+                    ->options(HousingCondition::class),
             ]);
     }
 
