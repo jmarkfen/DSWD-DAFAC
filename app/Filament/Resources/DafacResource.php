@@ -29,56 +29,31 @@ class DafacResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('serial_number')
-                    ->required(),
-                Forms\Components\TextInput::make('last_name')
-                    ->required(),
-                Forms\Components\TextInput::make('first_name')
-                    ->required(),
-                Forms\Components\TextInput::make('middle_name')
-                    ->required(),
-                Forms\Components\TextInput::make('name_extension')
-                    ->required(),
-                Forms\Components\TextInput::make('birthdate')
-                    ->required(),
-                Forms\Components\TextInput::make('sex')
-                    ->required(),
-                Forms\Components\TextInput::make('mother_maiden_name')
-                    ->required(),
-                Forms\Components\TextInput::make('monthly_family_net_income')
-                    ->required(),
-                Forms\Components\TextInput::make('id_card_number')
-                    ->required(),
-                Forms\Components\TextInput::make('contact_number')
-                    ->required(),
-                Forms\Components\TextInput::make('permanent_address')
-                    ->required(),
-                Forms\Components\TextInput::make('is_4ps_beneficiary')
-                    ->required(),
-                Forms\Components\TextInput::make('is_ip')
-                    ->required(),
-                Forms\Components\TextInput::make('older_persons_count')
-                    ->required(),
-                Forms\Components\TextInput::make('pregnant_and_lactating_mothers_count')
-                    ->required(),
-                Forms\Components\TextInput::make('pwd_and_with_medical_conditions_count')
-                    ->required(),
-                Forms\Components\TextInput::make('house_ownership')
-                    ->required(),
-                Forms\Components\TextInput::make('housing_condition')
-                    ->required(),
-                Forms\Components\TextInput::make('barangay_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('evacuation_site_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('birthplace_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('occupation_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('id_card_type_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('ethnicity_type_id')
-                    ->numeric(),
+                Forms\Components\TextInput::make('serial_number'),
+                Forms\Components\TextInput::make('last_name'),
+                Forms\Components\TextInput::make('first_name'),
+                Forms\Components\TextInput::make('middle_name'),
+                Forms\Components\TextInput::make('name_extension'),
+                Forms\Components\TextInput::make('birthdate'),
+                Forms\Components\TextInput::make('sex'),
+                Forms\Components\TextInput::make('mother_maiden_name'),
+                Forms\Components\TextInput::make('monthly_family_net_income'),
+                Forms\Components\TextInput::make('id_card_number'),
+                Forms\Components\TextInput::make('contact_number'),
+                Forms\Components\TextInput::make('permanent_address'),
+                Forms\Components\TextInput::make('is_4ps_beneficiary'),
+                Forms\Components\TextInput::make('is_ip'),
+                Forms\Components\TextInput::make('older_persons_count'),
+                Forms\Components\TextInput::make('pregnant_and_lactating_mothers_count'),
+                Forms\Components\TextInput::make('pwd_and_with_medical_conditions_count'),
+                Forms\Components\TextInput::make('house_ownership'),
+                Forms\Components\TextInput::make('housing_condition'),
+                Forms\Components\TextInput::make('barangay_id'),
+                Forms\Components\TextInput::make('evacuation_site_id'),
+                Forms\Components\TextInput::make('birthplace_id'),
+                Forms\Components\TextInput::make('occupation_id'),
+                Forms\Components\TextInput::make('id_card_type_id'),
+                Forms\Components\TextInput::make('ethnicity_type_id'),
             ]);
     }
 
@@ -91,11 +66,9 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('barangay_id')
                     ->label('Barangay')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('evacuation_site_id')
                     ->label('Evacuation site')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
@@ -110,7 +83,6 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthplace_id')
                     ->label('Birthplace')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->searchable(),
@@ -119,13 +91,11 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('occupation_id')
                     ->label('Occupation')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('monthly_family_net_income')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('id_card_type_id')
                     ->label('ID card')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_number')
                     ->label('ID card #')
@@ -142,7 +112,6 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('ethnicity_type_id')
                     ->label('Ethnicity')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('older_persons_count')
                     ->label('Older persons')
