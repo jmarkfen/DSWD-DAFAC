@@ -87,6 +87,7 @@ class DafacResource extends Resource
                 Forms\Components\Select::make('ethnicity_type_id')
                     ->label('Type of ethnicity')
                     ->relationship(name: 'ethnicity_type', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => EthnicityTypeResource::form($form))
                     ->searchable()
                     ->preload()
                     ->visible(fn (Forms\Get $get): bool => $get('is_ip')),
