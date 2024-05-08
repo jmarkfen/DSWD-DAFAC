@@ -36,6 +36,7 @@ class DafacResource extends Resource
                 Forms\Components\TextInput::make('serial_number'),
                 Forms\Components\Select::make('barangay_id')
                     ->relationship(name: 'barangay', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => BarangayResource::form($form))
                     ->searchable()
                     ->preload(),
                 Forms\Components\Select::make('evacuation_site_id')
