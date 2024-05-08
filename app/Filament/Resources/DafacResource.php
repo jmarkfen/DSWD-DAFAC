@@ -214,6 +214,7 @@ class DafacResource extends Resource
                         }),
                     Tables\Actions\BulkAction::make('change_evacuation_site')
                         ->icon('heroicon-m-pencil-square')
+                        ->requiresConfirmation()
                         ->form([
                             Forms\Components\Select::make('evacuation_site_id')
                                 ->relationship(name: 'evacuation_site', titleAttribute: 'name')
