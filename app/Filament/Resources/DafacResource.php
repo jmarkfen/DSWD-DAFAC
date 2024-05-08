@@ -212,7 +212,7 @@ class DafacResource extends Resource
                         ->action(function (array $data, Collection $records) {
                             $records->toQuery()->update(['barangay_id' => $data['barangay_id']]);
                         }),
-                    Tables\Actions\BulkAction::make('set_evacuation_site')
+                    Tables\Actions\BulkAction::make('change_evacuation_site')
                         ->icon('heroicon-m-pencil-square')
                         ->form([
                             Forms\Components\Select::make('evacuation_site_id')
