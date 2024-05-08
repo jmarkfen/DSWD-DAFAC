@@ -199,6 +199,19 @@ class DafacResource extends Resource
             ->actionsPosition(Tables\Enums\ActionsPosition::BeforeColumns)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('change_barangay')
+                        ->icon('heroicon-m-pencil-square')
+                        ->requiresConfirmation()
+                        ->form([
+                            Forms\Components\Select::make('barangay_id')
+                                ->relationship(name: 'barangay', titleAttribute: 'name')
+                                ->createOptionForm(fn (Form $form) => BarangayResource::form($form))
+                                ->searchable()
+                                ->preload(),
+                        ])
+                        ->action(function (array $data, Collection $records) {
+                            $records->toQuery()->update(['barangay_id' => $data['barangay_id']]);
+                        }),
                     Tables\Actions\BulkAction::make('set_evacuation_site')
                         ->icon('heroicon-m-pencil-square')
                         ->form([
