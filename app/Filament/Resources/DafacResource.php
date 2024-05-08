@@ -41,6 +41,7 @@ class DafacResource extends Resource
                     ->preload(),
                 Forms\Components\Select::make('evacuation_site_id')
                     ->relationship(name: 'evacuation_site', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => EvacuationSiteResource::form($form))
                     ->searchable()
                     ->preload(),
                 Forms\Components\TextInput::make('last_name'),
