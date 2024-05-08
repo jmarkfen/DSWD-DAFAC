@@ -65,6 +65,7 @@ class DafacResource extends Resource
                 Forms\Components\TextInput::make('mother_maiden_name'),
                 Forms\Components\Select::make('occupation_id')
                     ->relationship(name: 'occupation', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => OccupationResource::form($form))
                     ->searchable()
                     ->preload(),
                 Forms\Components\TextInput::make('monthly_family_net_income'),
