@@ -233,7 +233,7 @@ class DafacResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\MembersRelationManager::class,
         ];
     }
 
