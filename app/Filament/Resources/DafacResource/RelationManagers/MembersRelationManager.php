@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\DafacResource\RelationManagers;
 
+use App\Enums\Gender;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -21,6 +22,13 @@ class MembersRelationManager extends RelationManager
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('relation_to_head'),
+                Forms\Components\TextInput::make('age'),
+                Forms\Components\Radio::make('sex')
+                    ->options(Gender::class),
+                Forms\Components\TextInput::make('educational_attainment'),
+                Forms\Components\TextInput::make('occupational_skills'),
+                Forms\Components\TextInput::make('remarks'),
             ]);
     }
 
