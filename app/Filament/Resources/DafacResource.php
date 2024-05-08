@@ -72,6 +72,7 @@ class DafacResource extends Resource
                 Forms\Components\Select::make('id_card_type_id')
                     ->label('ID card presented')
                     ->relationship(name: 'id_card_type', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => IdCardTypeResource::form($form))
                     ->searchable()
                     ->preload(),
                 Forms\Components\TextInput::make('id_card_number')
