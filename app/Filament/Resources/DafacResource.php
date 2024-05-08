@@ -55,6 +55,7 @@ class DafacResource extends Resource
                     ->maxDate(now()),
                 Forms\Components\Select::make('birthplace_id')
                     ->relationship(name: 'birthplace', titleAttribute: 'name')
+                    ->createOptionForm(fn (Form $form) => BirthplaceResource::form($form))
                     ->searchable()
                     ->preload(),
                 Forms\Components\Radio::make('sex')
