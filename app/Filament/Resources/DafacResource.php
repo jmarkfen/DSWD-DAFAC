@@ -115,11 +115,10 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('serial_number')
                     ->label('Serial #')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('barangay_id')
+                Tables\Columns\TextColumn::make('barangay.name')
                     ->label('Barangay')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('evacuation_site_id')
-                    ->label('Evacuation site')
+                Tables\Columns\TextColumn::make('evacuation_site.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
                     ->searchable(),
@@ -131,8 +130,9 @@ class DafacResource extends Resource
                     ->label('Name ext.')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthdate')
+                    ->date('d F Y')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('birthplace_id')
+                Tables\Columns\TextColumn::make('birthplace.name')
                     ->label('Birthplace')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sex')
@@ -140,16 +140,16 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('mother_maiden_name')
                     ->label('Mother')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('occupation_id')
+                Tables\Columns\TextColumn::make('occupation.name')
                     ->label('Occupation')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('monthly_family_net_income')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('id_card_type_id')
-                    ->label('ID card')
+                Tables\Columns\TextColumn::make('id_card_type.name')
+                    ->label('ID type')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_number')
-                    ->label('ID card #')
+                    ->label('ID #')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('contact_number')
                     ->searchable(),
@@ -157,11 +157,13 @@ class DafacResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('is_4ps_beneficiary')
                     ->label('4Ps')
-                    ->searchable(),
+                    ->searchable()
+                    ->formatStateUsing(fn (string $state) => $state ? 'Yes' : 'No'),
                 Tables\Columns\TextColumn::make('is_ip')
                     ->label('IP')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('ethnicity_type_id')
+                    ->searchable()
+                    ->formatStateUsing(fn (string $state) => $state ? 'Yes': 'No'),
+                Tables\Columns\TextColumn::make('ethnicity_type.name')
                     ->label('Ethnicity')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('older_persons_count')
