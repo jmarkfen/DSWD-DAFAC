@@ -19,6 +19,8 @@ class IdCardTypeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $modelLabel = 'ID Card Type';
+
     public static function form(Form $form): Form
     {
         return $form
