@@ -46,6 +46,7 @@ class BirthplaceResource extends Resource
             ->filters([
                 //
             ])
+            ->actionsPosition(Tables\Enums\ActionsPosition::BeforeColumns)
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
