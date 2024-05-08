@@ -163,7 +163,7 @@ class DafacResource extends Resource
                 Tables\Columns\TextColumn::make('is_ip')
                     ->label('IP')
                     ->searchable()
-                    ->formatStateUsing(fn (string $state) => $state ? 'Yes': 'No'),
+                    ->formatStateUsing(fn (string $state) => $state ? 'Yes' : 'No'),
                 Tables\Columns\TextColumn::make('ethnicity_type.name')
                     ->label('Ethnicity')
                     ->sortable(),
