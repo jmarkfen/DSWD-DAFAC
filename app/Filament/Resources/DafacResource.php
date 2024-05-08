@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class DafacResource extends Resource
@@ -198,6 +199,18 @@ class DafacResource extends Resource
             ->actionsPosition(Tables\Enums\ActionsPosition::BeforeColumns)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\BulkAction::make('set_evacuation_site')
+                        ->icon('heroicon-m-pencil-square')
+                        ->form([
+                            Forms\Components\Select::make('evacuation_site_id')
+                                ->relationship(name: 'evacuation_site', titleAttribute: 'name')
+                                ->createOptionForm(fn (Form $form) => EvacuationSiteResource::form($form))
+                                ->searchable()
+                                ->preload(),
+                        ])
+                        ->action(function (array $data, Collection $records) {
+                            $records->toQuery()->update(['evacuation_site_id' => $data['evacuation_site_id']]);
+                        }),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
