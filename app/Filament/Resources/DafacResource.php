@@ -7,11 +7,14 @@ use App\Enums\HouseOwnershipType;
 use App\Enums\HousingCondition;
 use App\Filament\Resources\DafacResource\Pages;
 use App\Filament\Resources\DafacResource\RelationManagers;
+use App\Models\Birthplace;
 use App\Models\Dafac;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\Indicator;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -190,8 +193,68 @@ class DafacResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('filters')
+                    ->columnSpanFull()
+                    ->columns(['xl' => 3])
+                    ->form([
+                        Forms\Components\TextInput::make('last_name'),
+                        Forms\Components\TextInput::make('first_name'),
+                        Forms\Components\TextInput::make('middle_name'),
+                        Forms\Components\TextInput::make('name_extension'),
+                        Forms\Components\DatePicker::make('birthdate')
+                            ->native(false)
+                            ->displayFormat('d F Y')
+                            ->weekStartsOnSunday()
+                            ->maxDate(now()),
+                        Forms\Components\Select::make('birthplace_id')
+                            ->relationship(name: 'birthplace', titleAttribute: 'name')
+                            ->createOptionForm(fn (Form $form) => BirthplaceResource::form($form))
+                            ->searchable()
+                            ->preload(),
+                        Forms\Components\Radio::make('sex')
+                            ->inline()
+                            ->inlineLabel(false)
+                            ->options(Gender::class),
+                    ])
+                    ->query(function (Builder $query, array $data) {
+                        return $query
+                            ->when($data['last_name'], fn (Builder $query, $value) => $query->where('last_name', 'like', "%$value%"))
+                            ->when($data['first_name'], fn (Builder $query, $value) => $query->where('first_name', 'like', "%$value%"))
+                            ->when($data['middle_name'], fn (Builder $query, $value) => $query->where('middle_name', 'like', "%$value%"))
+                            ->when($data['name_extension'], fn (Builder $query, $value) => $query->where('name_extension', 'like', "%$value%"))
+                            ->when($data['birthdate'], fn (Builder $query, $value) => $query->whereDate('birthdate', $value))
+                            ->when($data['birthplace_id'], fn (Builder $query, $value) => $query->where('birthplace_id', $value));
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+                        if ($data['last_name']) {
+                            $indicators[] = Indicator::make('Last name: ' . $data['last_name'])
+                                ->removeField('last_name');
+                        }
+                        if ($data['first_name']) {
+                            $indicators[] = Indicator::make('First name: ' . $data['first_name'])
+                                ->removeField('first_name');
+                        }
+                        if ($data['middle_name']) {
+                            $indicators[] = Indicator::make('Middle name: ' . $data['middle_name'])
+                                ->removeField('middle_name');
+                        }
+                        if ($data['name_extension']) {
+                            $indicators[] = Indicator::make('Name ext.: ' . $data['name_extension'])
+                                ->removeField('name_extension');
+                        }
+                        if ($data['birthdate']) {
+                            $indicators[] = Indicator::make('Birthdate: ' . Carbon::parse($data['birthdate'])->format('d F Y'))
+                                ->removeField('birthdate');
+                        }
+                        if ($data['birthplace_id']) {
+                            $indicators[] = Indicator::make('Birthplace: ' . Birthplace::find($data['birthplace_id'])->name)
+                                ->removeField('birthplace_id');
+                        }
+                        return $indicators;
+                    })
             ])
+            ->filtersLayout(Tables\Enums\FiltersLayout::AboveContent)
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
