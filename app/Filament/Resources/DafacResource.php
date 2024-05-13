@@ -117,72 +117,53 @@ class DafacResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('serial_number')
-                    ->label('Serial #')
-                    ->searchable(),
+                    ->label('Serial #'),
                 Tables\Columns\TextColumn::make('barangay.name')
                     ->label('Barangay')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('evacuation_site.name')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('last_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('first_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('middle_name')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('last_name'),
+                Tables\Columns\TextColumn::make('first_name'),
+                Tables\Columns\TextColumn::make('middle_name'),
                 Tables\Columns\TextColumn::make('name_extension')
-                    ->label('Name ext.')
-                    ->searchable(),
+                    ->label('Name ext.'),
                 Tables\Columns\TextColumn::make('birthdate')
-                    ->date('d F Y')
-                    ->searchable(),
+                    ->date('d F Y'),
                 Tables\Columns\TextColumn::make('birthplace.name')
                     ->label('Birthplace')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sex')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('sex'),
                 Tables\Columns\TextColumn::make('mother_maiden_name')
-                    ->label('Mother')
-                    ->searchable(),
+                    ->label('Mother'),
                 Tables\Columns\TextColumn::make('occupation.name')
                     ->label('Occupation')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('monthly_family_net_income')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('monthly_family_net_income'),
                 Tables\Columns\TextColumn::make('id_card_type.name')
                     ->label('ID type')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('id_card_number')
-                    ->label('ID #')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('contact_number')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('permanent_address')
-                    ->searchable(),
+                    ->label('ID #'),
+                Tables\Columns\TextColumn::make('contact_number'),
+                Tables\Columns\TextColumn::make('permanent_address'),
                 Tables\Columns\TextColumn::make('is_4ps_beneficiary')
                     ->label('4Ps')
-                    ->searchable()
                     ->formatStateUsing(fn (string $state) => $state ? 'Yes' : 'No'),
                 Tables\Columns\TextColumn::make('is_ip')
                     ->label('IP')
-                    ->searchable()
                     ->formatStateUsing(fn (string $state) => $state ? 'Yes' : 'No'),
                 Tables\Columns\TextColumn::make('ethnicity_type.name')
                     ->label('Ethnicity')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('older_persons_count')
-                    ->label('Older persons')
-                    ->searchable(),
+                    ->label('Older persons'),
                 Tables\Columns\TextColumn::make('pregnant_and_lactating_mothers_count')
-                    ->label('Lactating mothers')
-                    ->searchable(),
+                    ->label('Lactating mothers'),
                 Tables\Columns\TextColumn::make('pwd_and_with_medical_conditions_count')
-                    ->label('PWDs w/ medical condition')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('house_ownership')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('housing_condition')
-                    ->searchable(),
+                    ->label('PWDs w/ medical condition'),
+                Tables\Columns\TextColumn::make('house_ownership'),
+                Tables\Columns\TextColumn::make('housing_condition'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
