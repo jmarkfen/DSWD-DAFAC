@@ -176,7 +176,7 @@ class DafacResource extends Resource
             ->filters([
                 Tables\Filters\Filter::make('filters')
                     ->columnSpanFull()
-                    ->columns(['xl' => 3])
+                    ->columns(['xl' => 4])
                     ->form([
                         Forms\Components\TextInput::make('last_name'),
                         Forms\Components\TextInput::make('first_name'),
