@@ -290,6 +290,20 @@ class DafacResource extends Resource
                         }),
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->emptyStateActions([
+                Tables\Actions\Action::make('new')
+                    ->label('New ' . self::$modelLabel)
+                    ->action(function (Table $table) {
+                        $data = $table->getFilter('filters')->getState();
+                        session()->flash('last_name', $data['last_name']);
+                        session()->flash('first_name', $data['first_name']);
+                        session()->flash('middle_name', $data['middle_name']);
+                        session()->flash('name_extension', $data['name_extension']);
+                        session()->flash('birthdate', $data['birthdate']);
+                        session()->flash('birthplace_id', $data['birthplace_id']);
+                        return redirect(self::getUrl('create'));
+                    }),
             ]);
     }
 
