@@ -223,7 +223,8 @@ class DafacResource extends Resource
                             ->when($data['middle_name'], fn (Builder $query, $value) => $query->where('middle_name', 'like', "%$value%"))
                             ->when($data['name_extension'], fn (Builder $query, $value) => $query->where('name_extension', 'like', "%$value%"))
                             ->when($data['birthdate'], fn (Builder $query, $value) => $query->whereDate('birthdate', $value))
-                            ->when($data['birthplace_id'], fn (Builder $query, $value) => $query->where('birthplace_id', $value));
+                            ->when($data['birthplace_id'], fn (Builder $query, $value) => $query->where('birthplace_id', $value))
+                            ->when($data['sex'], fn (Builder $query, $value) => $query->where('sex', $value));
                     })
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
@@ -250,6 +251,10 @@ class DafacResource extends Resource
                         if ($data['birthplace_id']) {
                             $indicators[] = Indicator::make('Birthplace: ' . Birthplace::find($data['birthplace_id'])->name)
                                 ->removeField('birthplace_id');
+                        }
+                        if ($data['sex']) {
+                            $indicators[] = Indicator::make('Sex: ' . $data['sex'])
+                                ->removeField('sex');
                         }
                         return $indicators;
                     })
