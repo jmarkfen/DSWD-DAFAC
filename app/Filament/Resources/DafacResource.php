@@ -203,7 +203,7 @@ class DafacResource extends Resource
                             ->when($data['first_name'], fn (Builder $query, $value) => $query->where('first_name', 'like', "%$value%"))
                             ->when($data['middle_name'], fn (Builder $query, $value) => $query->where('middle_name', 'like', "%$value%"))
                             ->when($data['name_extension'], fn (Builder $query, $value) => $query->where('name_extension', 'like', "%$value%"))
-                            ->when($data['birthdate'], fn (Builder $query, $value) => $query->whereDate('birthdate', $value))
+                            ->when($data['birthdate'], fn (Builder $query, $value) => $query->whereDate('birthdate', Carbon::parse($value)->toDateString()))
                             ->when($data['birthplace_id'], fn (Builder $query, $value) => $query->where('birthplace_id', $value))
                             ->when($data['sex'], fn (Builder $query, $value) => $query->where('sex', $value));
                     })
