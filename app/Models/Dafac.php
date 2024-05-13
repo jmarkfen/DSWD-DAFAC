@@ -19,6 +19,8 @@ class Dafac extends Model
 
     protected $casts = [
         'sex' => Gender::class,
+        'is_ip' => 'boolean',
+        'is_4ps_beneficiary' => 'boolean',
         'house_ownership' => HouseOwnershipType::class,
         'housing_condition' => HousingCondition::class,
     ];
