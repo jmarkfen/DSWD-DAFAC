@@ -13,7 +13,8 @@ class ListDafacs extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            // Actions\CreateAction::make(),
+            Actions\Action::make('capture_mode')
+                ->url(self::getResource()::getUrl('capture')),
         ];
     }
 }
